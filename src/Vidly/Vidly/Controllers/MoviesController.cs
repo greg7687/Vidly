@@ -15,6 +15,13 @@ namespace Vidly.Controllers
             var movie = new Movie() { Name = "Shrek!" };
 
             return View(movie);
+
+        }
+
+        [Route("movies/release/{year}/{moth:regex(\\{4}):range(1,12)}")]
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
         }
     }
 }
